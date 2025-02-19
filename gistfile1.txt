@@ -1,0 +1,477 @@
+
+
+<!-- Data Tabled Css  -->
+<link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.14/dist/sweetalert2.all.min.js"></script>
+    <!-- Fav  -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.css" rel="stylesheet" />
+    <!-- Style for Dialog Box -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.css">
+  
+<!-- font awesome icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  
+
+
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDYuMC1jMDAyIDc5LjE2NDM1MiwgMjAyMC8wMS8zMC0xNTo1MDozOCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkIyRkFBNzE1MzEyNTExRUQ4NkFBRjE2MTI3NjdFNDRCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkIyRkFBNzE2MzEyNTExRUQ4NkFBRjE2MTI3NjdFNDRCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QjJGQUE3MTMzMTI1MTFFRDg2QUFGMTYxMjc2N0U0NEIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QjJGQUE3MTQzMTI1MTFFRDg2QUFGMTYxMjc2N0U0NEIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4c0FRlAAAIMklEQVR42pRXC2yV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">
+
+             
+             
+<!DOCTYPE html><!--
+* CoreUI PRO Bootstrap Admin Template
+* @version v4.3.0
+* @link https://coreui.io/product/bootstrap-dashboard-template/
+* Copyright (c) 2023 creativeLabs Łukasz Holeczek
+* License (https://coreui.io/pro/license/)
+--><!-- Breadcrumb-->
+<html lang="en">
+  <head>
+    <base href="./">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Bootstrap Admin Template">
+    <meta name="author" content="Łukasz Holeczek">
+    <meta name="keyword" content="Bootstrap,Admin,Template,SCSS,HTML,RWD,Dashboard">
+    <title>SHIVAJI SERVICES</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Vendors styles-->
+    <link rel="stylesheet" href="vendors/simplebar/css/simplebar.css">
+    <link rel="stylesheet" href="css/vendors/simplebar.css">
+    <!-- Main styles for this application-->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- We use those styles to show code examples, you should remove them in your application.-->
+    <link href="css/examples.css" rel="stylesheet">
+    <!-- Google Tag Manager-->
+    <script>
+      (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-KX4JH47');
+    </script>
+    <!-- End Google Tag Manager-->
+    <link href="vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
+  </head>
+  <body class="light-theme">
+    <!-- Google Tag Manager (noscript)-->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KX4JH47" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+</script>
+    <!-- End Google Tag Manager (noscript)-->
+  <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+      <div class="sidebar-brand d-none d-md-flex">
+       <h4> SHIVAJI SERVICES</h4>
+        <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
+          <use xlink:href="assets/brand/coreui.svg#signet"></use>
+        </svg>
+      </div>
+    <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
+        <li class="nav-item">
+            <a class="nav-link" href="index.php">
+                <svg class="nav-icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
+                </svg> 
+                DASHBOARD
+                
+            </a>
+            
+   
+   
+   
+            
+            <a class="nav-link" href="wallet.php">
+                 <svg class="nav-icon">  </svg> 
+        WALLET
+                
+            </a>
+             <a class="nav-link" href="transections.php">
+                 <svg class="nav-icon">  </svg> 
+        TRANSECTION
+                
+            </a>
+                        
+
+
+
+
+        <li class="nav-title">UTTER PRADESH</li>
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+           
+             <!-- SVG code representing a PDF icon -->
+
+
+
+            <svg class="nav-icon">  </svg>  CASTE CERTIFICATE</a></a>
+ <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="uprtps.php"><span class="nav-icon"></span> NEW APPLY</a></li>
+            <li class="nav-item"><a class="nav-link" href="uprtpslist.php"><span class="nav-icon"></span> LIST</a></li>
+            
+          </ul>
+        </li>
+        
+         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+           
+
+             <svg class="nav-icon">  </svg>  DOMOCILE CERTIFICATE</a> 
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="domocileup.php"><span class="nav-icon"></span> NEW APPLY</a></li>
+            <li class="nav-item"><a class="nav-link" href="domocileuplist.php"><span class="nav-icon"></span> LIST</a></li>
+            
+          </ul>
+        </li>
+        
+     <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+           
+
+             <svg class="nav-icon">  </svg> INCOME CERTIFICATE</a></a> 
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="income.php"><span class="nav-icon"></span> NEW APPLY</a></li>
+            <li class="nav-item"><a class="nav-link" href="incomelist.php"><span class="nav-icon"></span> LIST</a></li>
+            
+          </ul>
+        </li>
+        
+        
+          
+        
+       
+        
+       
+          <hr>
+          <div class="utilization-container" style="display: none;">
+          <h6>System Utilization</h6>
+          <div class="utilization-container" style="display: none;">
+          <div class="text-uppercase mb-1 mt-4"><small><b>CPU Usage</b></small></div>
+          <div class="progress progress-thin">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div><small class="text-medium-emphasis">348 Processes. 1/4 Cores.</small>
+          <div class="text-uppercase mb-1 mt-2"><small><b>Memory Usage</b></small></div>
+          <div class="progress progress-thin">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+          </div><small class="text-medium-emphasis">11444GB/16384MB</small>
+          <div class="text-uppercase mb-1 mt-2"><small><b>SSD 1 Usage</b></small></div>
+          <div class="progress progress-thin">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+          </div><small class="text-medium-emphasis">243GB/256GB</small>
+          <div class="text-uppercase mb-1 mt-2"><small><b>SSD 2 Usage</b></small></div>
+          <div class="progress progress-thin">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+          </div><small class="text-medium-emphasis">25GB/256GB</small>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper d-flex flex-column min-vh-100 bg-light dark:bg-transparent">
+      <header class="header header-sticky mb-4">
+        <div class="container-fluid">
+          <button class="header-toggler px-md-0 me-md-3" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+            <svg class="icon icon-lg">
+              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-menu"></use>
+            </svg>
+          </button><a class="header-brand d-md-none" href="#">
+            <svg width="118" height="46" alt="CoreUI Logo">
+              <use xlink:href="assets/brand/coreui.svg#full"></use>
+            </svg></a>
+       
+<style>.dark-button {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.dark-button:hover {
+    background-color: #555; /* Darker background color on hover */
+}
+</style>
+
+          <nav class="header-nav ms-auto me-4">
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+              
+            
+             
+            </div>
+          </nav>
+         
+          <ul class="header-nav me-4">
+            <li class="nav-item dropdown d-flex align-items-center"><a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <div class="avatar avatar-md"><img class="avatar-img" src="myimage.jpg"></div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end pt-0">
+                <div class="dropdown-header bg-light py-2 dark:bg-white dark:bg-opacity-10">
+                  <div class="fw-semibold">Account</div>
+                </div><a class="dropdown-item" href="profile.php">
+                  <svg class="icon me-2">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-user"></use>
+                  </svg> Profile</a><a class="dropdown-item" href="../logout.php">
+                 
+                  <svg class="icon me-2">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
+                  </svg> Logout</a>
+                  
+                 
+              </div>
+            </li>
+          </ul>
+         
+        </div>
+       
+       
+      </header>
+      
+    <!-- CoreUI and necessary plugins-->
+    <script src="vendors/@coreui/coreui-pro/js/coreui.bundle.min.js"></script>
+    <script src="vendors/simplebar/js/simplebar.min.js"></script>
+    <script>
+      if (document.body.classList.contains('dark-theme')) {
+        var element = document.getElementById('btn-dark-theme');
+        if (typeof(element) != 'undefined' && element != null) {
+          document.getElementById('btn-dark-theme').checked = true;
+        }
+      } else {
+        var element = document.getElementById('btn-light-theme');
+        if (typeof(element) != 'undefined' && element != null) {
+          document.getElementById('btn-light-theme').checked = true;
+        }
+      }
+
+      function handleThemeChange(src) {
+        var event = document.createEvent('Event');
+        event.initEvent('themeChange', true, true);
+
+        if (src.value === 'light') {
+          document.body.classList.remove('dark-theme');
+        }
+        if (src.value === 'dark') {
+          document.body.classList.add('dark-theme');
+        }
+        document.body.dispatchEvent(event);
+      }
+    </script>
+    <!-- Plugins and scripts required by this view-->
+    <script src="vendors/chart.js/js/chart.min.js"></script>
+    <script src="vendors/@coreui/chartjs/js/coreui-chartjs.js"></script>
+    <script src="vendors/@coreui/utils/js/coreui-utils.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+    </script>
+
+  </body>
+</html>
+<!-- Data Tabled Css  -->
+<link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.14/dist/sweetalert2.all.min.js"></script>
+    <!-- Fav  -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.css" rel="stylesheet" />
+    <!-- Style for Dialog Box -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.css">
+  
+<!-- font awesome icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  
+
+
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDYuMC1jMDAyIDc5LjE2NDM1MiwgMjAyMC8wMS8zMC0xNTo1MDozOCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkIyRkFBNzE1MzEyNTExRUQ4NkFBRjE2MTI3NjdFNDRCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkIyRkFBNzE2MzEyNTExRUQ4NkFBRjE2MTI3NjdFNDRCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QjJGQUE3MTMzMTI1MTFFRDg2QUFGMTYxMjc2N0U0NEIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QjJGQUE3MTQzMTI1MTFFRDg2QUFGMTYxMjc2N0U0NEIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4c0FRlAAAIMklEQVR42pRXC2yV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">
+
+
+
+<script>
+window.onload = function() {
+  var audio = document.getElementById("audioPlayer");
+  audio.play();
+
+  window.onblur = function() {
+    audio.pause();
+  };
+
+  window.onfocus = function() {
+    audio.play();
+  };
+};
+</script>
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+   
+</div>
+ 
+<!-- Content Row -->
+<div class="row">
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        
+                        <a href="#" class=" btn btn-sm btn-danger shadow-sm"></i>WALLET BALACE</a>
+                        </div>
+                      
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">₹ 0</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-rupee-sign fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  
+    
+<!-- Content Row -->
+  <!-- Content Row admin -->
+
+<div class="row">
+
+    <!-- Area Chart -->
+    <div class="col-xl-8 col-lg-7">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div
+                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                
+                <h6 class="m-0 font-weight-bold text-success"><i class="fas fa-bullhorn"></i> Notification and Message Center</h6>
+                <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-danger-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                        aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-header">Dropdown Header:</div>
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                            <div class="panel-body">
+                            <div class="list-group">
+                                <span href="#" class="list-item text-info">
+                                 <h4>   <i class="fa fa-comment fa-fw"></i> इस पोर्टल से बने हुए सभी सर्टिफिकेट मैन्युअल है कोई भी ओरिजिनल नहीं है 
+
+                                                      <span class="pull-right text-primary small"><em>20th May, 2024</em>
+                                    </span>
+                        </h4> 
+                        </span>
+                              
+                                </div>  
+                            
+                            <!-- /.list-group -->
+                          
+                        </div>
+                                        <div class="panel-body">
+                            <div class="list-group">
+                                <span href="#" class="list-item text-info">
+                                 <h4>   <i class="fa fa-comment fa-fw"></i> Per Certificate Charge 10 Rupay 
+
+                                                      <span class="pull-right text-primary small"><em>30th April, 2024</em>
+                                    </span>
+                        </h4> 
+                        </span>
+                              
+                                </div>  
+                            
+                            <!-- /.list-group -->
+                          
+                        </div>
+                                        </div>
+               
+            
+        </div>
+    </div>
+
+    <!-- Pie Chart -->
+    <div class="col-xl-4 col-lg-5">
+      
+            <!-- Card Body -->
+          
+            
+            <div class="card card-default">
+              <div class="card-header">
+               
+                <h6 class="card-title m-0 font-weight-bold text-danger"><i class="fas fa-bullhorn"></i> WELCOME  Fariyad ali</h6>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="callout callout-danger">
+                  <h5>SEND US WHATSAPP MESSAGE</h5>
+                </div>
+               
+        <div class="card-body">
+                <div class="callout callout-success">
+                  <h6>CONTACT: admin</h6>
+
+                </div>
+                </div>
+                 </div>
+               </div>
+                 </div>
+                 </div>
+                 
+              <!-- /.card-body -->
+            
+
+<!-- Content Row -->
+
+        
+
+
+
+
+
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
